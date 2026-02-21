@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מדיניות פרטיות | טופס מקוון TM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Frank+Ruhl+Libre:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --blue: #1a3a6b;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --gold: #d4a017;
+      --text: #1e2a3a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --warning-bg: #fffbeb;
+      --warning-border: #f59e0b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: white;
+      padding: 60px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -40px;
+      width: 250px; height: 250px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+
+    .app-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    header h1 {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    header .subtitle {
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .update-badge {
+      display: inline-block;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 5px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* Layout */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    main {
+      padding: 48px 20px 80px;
+    }
+
+    /* TOC */
+    .toc {
+      background: white;
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+
+    .toc-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .toc ol {
+      padding-right: 20px;
+      columns: 2;
+      column-gap: 24px;
+    }
+
+    .toc li { margin-bottom: 4px; }
+
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .toc a:hover { text-decoration: underline; }
+
+    /* Sections */
+    .section {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to left, white, #f8faff);
+    }
+
+    .section-number {
+      background: var(--accent);
+      color: white;
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .section-body {
+      padding: 24px 28px;
+    }
+
+    .section-body p {
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .section-body p:last-child { margin-bottom: 0; }
+
+    /* Camera highlight box */
+    .camera-box {
+      background: var(--accent-light);
+      border: 1px solid #93c5fd;
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+
+    .camera-box-title {
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Warning box */
+    .warning-box {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-right: 4px solid var(--warning-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #92400e;
+    }
+
+    .warning-box strong { color: #78350f; }
+
+    /* Permission pills */
+    .permissions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+
+    .permission-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .permission-pill .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Use list */
+    .use-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+
+    .use-list li {
+      padding: 8px 0 8px 0;
+      padding-right: 24px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+
+    .use-list li:last-child { border-bottom: none; }
+
+    .use-list li::before {
+      content: '✓';
+      position: absolute;
+      right: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Subsection */
+    .subsection {
+      margin-bottom: 20px;
+    }
+
+    .subsection h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    /* Contact box */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .contact-item .label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .contact-item .value {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 15px;
+      direction: ltr;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+    }
+
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .toc ol { columns: 1; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .section-header { padding: 16px 20px; }
+      .section-body { padding: 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="app-badge">📱 אפליקציית Android</div>
+    <h1>תקנון, תנאי שימוש<br>ומדיניות פרטיות</h1>
+    <p class="subtitle">טופס מקוון TM | א.ר.י.א.ל טי.אם יעוץ ופתרונות ניהול בע"מ</p>
+    <div class="update-badge">עדכון אחרון: פברואר 2026</div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-title">תוכן עניינים</div>
+      <ol>
+        <li><a href="#s1">השימוש באפליקציה</a></li>
+        <li><a href="#s2">הרשאות ושימוש במצלמה</a></li>
+        <li><a href="#s3">קניין רוחני</a></li>
+        <li><a href="#s4">הצהרות משתמש</a></li>
+        <li><a href="#s5">רכישת שירותים ומנוי</a></li>
+        <li><a href="#s6">מדיניות ביטול</a></li>
+        <li><a href="#s7">פעילות אסורה</a></li>
+        <li><a href="#s8">מדיניות פרטיות</a></li>
+        <li><a href="#s9">אבטחת מידע</a></li>
+        <li><a href="#s10">סמכות שיפוט</a></li>
+        <li><a href="#s11">יצירת קשר</a></li>
+      </ol>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section" id="s1">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">השימוש באפליקציה</div>
+      </div>
+      <div class="section-body">
+        <p>טופס מקוון TM ("האפליקציה") הינה מערכת חכמה לניהול טפסים, יצירת טפסים דיגיטליים, שליחת הטפסים, חתימה דיגיטלית על טפסים ועוד ("המערכת" ו/או "השירותים"). ניתן לרכוש באפליקציה מנוי המאפשר להשתמש במערכת ובשירותים (להלן: "המנוי").</p>
+        <p>תקנון ותנאי שימוש אלו מהווים הסכם מחייב בינך לבין א.ר.י.א.ל טי.אם יעוץ ופתרונות ניהול בע"מ, ח.פ. 516865573, מפעילת האפליקציה ("החברה" ו/או "אנחנו"). קרא את התקנון בקפידה, שכן השימוש באפליקציה מעיד על הסכמתך לתנאים הכלולים בו.</p>
+        <p>השימוש באפליקציה מיועד לבעלי כשירות משפטית מגיל 18 בלבד.</p>
+      </div>
+    </div>
+
+    <!-- Section 2 - CAMERA -->
+    <div class="section" id="s2">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">הרשאות האפליקציה ושימוש במצלמה</div>
+      </div>
+      <div class="section-body">
+
+        <div class="subsection">
+          <h3>הרשאות שהאפליקציה מבקשת</h3>
+          <div class="permissions">
+            <div class="permission-pill"><span class="dot"></span>android.permission.CAMERA</div>
+            <div class="permission-pill"><span class="dot"></span>android.permission.INTERNET</div>
+            <div class="permission-pill"><span class="dot"></span>android.permission.READ_EXTERNAL_STORAGE</div>
+            <div class="permission-pill"><span class="dot"></span>android.permission.WRITE_EXTERNAL_STORAGE</div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>מטרות השימוש במצלמה</h3>
+          <div class="camera-box">
+            <div class="camera-box-title">📷 הרשאת CAMERA משמשת אך ורק למטרות הבאות:</div>
+            <ul class="use-list">
+              <li>סריקת ברקוד / קוד QR — למילוי שדות טופס אוטומטי</li>
+              <li>צילום מסמכים ותמונות — לצורך הוספתם לטפסים דיגיטליים</li>
+              <li>חתימה דיגיטלית — זיהוי ותיעוד חתימה בתוך הטופס</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ הצהרה מפורשת לפי דרישות Google Play:</strong><br>
+          תמונות שצולמו נשמרות בשרתי האפליקציה אך ורק כחלק מתוכן הטפסים שנוצרו על ידי המשתמש. האפליקציה אינה מוכרת, מעבירה או משתפת תמונות אלו עם צדדים שלישיים למטרות פרסום, שיווק או כל מטרה אחרת. הגישה למצלמה מתבצעת אך ורק בזמן שימוש פעיל ולאחר קבלת הרשאה מפורשת מהמשתמש.
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section" id="s3">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">קניין רוחני</div>
+      </div>
+      <div class="section-body">
+        <p>כל זכויות היוצרים והקניין הרוחני באפליקציה, לרבות קוד, מאגרי מידע, תוכנות, עיצובים, שמע, וידאו, טקסט ותמונות ("התוכן") הם בבעלות האפליקציה בלבד, או בבעלות צד שלישי שהרשה לאפליקציה לעשות שימוש בהם על פי דין.</p>
+        <p>אין להעתיק, להפיץ, להציג בפומבי, לשנות, לעבד, ליצור יצירות נגזרות, למכור או להשכיר כל חלק מהתוכן ללא קבלת הסכמה בכתב ומראש מהאפליקציה.</p>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section" id="s4">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">הצהרות משתמש</div>
+      </div>
+      <div class="section-body">
+        <p>בטרם השימוש באפליקציה, המשתמשים מצהירים ומסכימים כי:</p>
+        <ul class="use-list">
+          <li>הפרטים שהוזנו בעת ההרשמה נכונים, עדכניים ומלאים</li>
+          <li>אסור להתחזות למשתמש אחר או לאדם אחר</li>
+          <li>אסור למכור או להעביר את החשבון האישי לכל גורם אחר</li>
+          <li>אסור להשתמש באפליקציה באופן שאינו עולה בקנה אחד עם החוק</li>
+          <li>כל פעולה באפליקציה נעשית על אחריותו הבלעדית של המשתמש</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section" id="s5">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">רכישת שירותים ומנוי</div>
+      </div>
+      <div class="section-body">
+        <p>השימוש במערכת ובשירותים יהיה בכפוף לרכישת מנוי, בהתאם למסלולי הרכישה המוצגים באפליקציה. המנוי יחודש באופן אוטומטי (בהתאם לסוג המנוי שנרכש) עד לבקשת ביטול על ידי הלקוח.</p>
+        <p>רכישת המנוי תתבצע באמצעות כרטיס אשראי או באמצעות כל אמצעי תשלום אחר אשר יוצג בעת הרכישה. מחירים ותנאי רכישה עשויים להשתנות מעת לעת.</p>
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section" id="s6">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">מדיניות ביטול</div>
+      </div>
+      <div class="section-body">
+        <p>ביטול מנוי והחזר כספי יתאפשרו בכל עת. המנוי יבוטל בתוך 3 ימי עסקים מתאריך קבלת הודעת הביטול, עבור דמי ביטול בסך 148 ש"ח.</p>
+        <p>כל החזר כספי יעשה באמצעי התשלום שבו ביצע הלקוח את ההזמנה, ויאושר לאחר שהלקוח יקבל הודעה בכתב. האמור כפוף להוראות חוק הגנת הצרכן, התשמ"א-1981.</p>
+      </div>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="section" id="s7">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">פעילות אסורה באפליקציה</div>
+      </div>
+      <div class="section-body">
+        <p>השימוש באפליקציה מותר למטרות פרטיות ואישיות בלבד. אינך רשאי, בין היתר:</p>
+        <ul class="use-list">
+          <li>לאחזר נתונים לצורך יצירת מסד נתונים ללא אישור בכתב</li>
+          <li>לעקוף את מנגנוני האבטחה של האפליקציה</li>
+          <li>להשתמש בכלים אוטומטיים (בוטים, סקריפטים)</li>
+          <li>להתחזות למשתמש אחר</li>
+          <li>להעלות וירוסים, סוסים טרויאניים או קבצים זדוניים</li>
+          <li>להשתמש באפליקציה למטרות מסחריות שאינן מאושרות</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 8 - Privacy Policy -->
+    <div class="section" id="s8">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <div class="section-title">מדיניות פרטיות</div>
+      </div>
+      <div class="section-body">
+
+        <div class="subsection">
+          <h3>מידע הנאסף</h3>
+          <ul class="use-list">
+            <li>פרטי זיהוי: שם, כתובת דוא"ל, מספר טלפון</li>
+            <li>מידע על המכשיר: סוג מכשיר, מערכת הפעלה, כתובת IP</li>
+            <li>נתוני שימוש: עמודים שנצפו, פעולות שבוצעו, זמני שימוש</li>
+            <li>תכנים שהמשתמש הזין: טפסים, מסמכים, תמונות שהועלו לטופס</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>שימוש במצלמה ונתוני תמונות (Camera Usage Disclosure)</h3>
+          <div class="camera-box">
+            <div class="camera-box-title">📷 גילוי מפורש לפי דרישות Google Play</div>
+            <p>האפליקציה מבקשת גישה למצלמה (<strong>android.permission.CAMERA</strong>) לצורך סריקת ברקוד/QR, צילום מסמכים לטופס וחתימה דיגיטלית.</p>
+            <p style="margin-top:10px;"><strong>תמונות וסריקות שצולמו עשויות להישמר בשרתי האפליקציה, אך ורק כחלק מתוכן הטופס שהמשתמש יצר.</strong> תמונות אינן מועברות לצדדים שלישיים למטרות פרסום או שיווק. כל שימוש במצלמה מתבצע אך ורק ביוזמת המשתמש ובהסכמתו המפורשת.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>שיתוף מידע עם צדדים שלישיים</h3>
+          <p>אנו עשויים לשתף מידע אישי (למעט תמונות) עם שותפינו העסקיים ונותני שירותים, לצורך פיתוח ותחזוקת האפליקציה, שיפור חוויית המשתמש, ועמידה בדרישות חוק.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>זכויות המשתמש</h3>
+          <p>עומדת לך הזכות לבקש גישה למידע שנאסף עליך, תיקונו, או מחיקתו ("הזכות להישכח"). לפנייה: <strong>support@tofes-mekovan.co.il</strong></p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Section 9 -->
+    <div class="section" id="s9">
+      <div class="section-header">
+        <div class="section-number">9</div>
+        <div class="section-title">אבטחת מידע</div>
+      </div>
+      <div class="section-body">
+        <p>האפליקציה נוקטת צעדים סבירים להגנה על אבטחת הנתונים האישיים של המשתמשים, בהתאם לחוקים ולתקנות החלים במדינת ישראל, לרבות חוק הגנת הפרטיות התשמ"א-1981.</p>
+        <p>יחד עם זאת, אין בטחון מוחלט מפני פעילות עוינת של גורמים חיצוניים, ולכן למשתמשי האפליקציה לא תהיה כל טענה בגין גישה בלתי מורשית שנגרמה כתוצאה מפריצה חיצונית.</p>
+      </div>
+    </div>
+
+    <!-- Section 10 -->
+    <div class="section" id="s10">
+      <div class="section-header">
+        <div class="section-number">10</div>
+        <div class="section-title">סמכות שיפוט</div>
+      </div>
+      <div class="section-body">
+        <p>על תקנון זה והשימוש באפליקציה יחולו אך ורק דיני מדינת ישראל. לבתי המשפט בישראל במחוז המרכז תהיה סמכות שיפוט ייחודית בכל עניין הנובע מתקנון זה.</p>
+      </div>
+    </div>
+
+    <!-- Section 11 -->
+    <div class="section" id="s11">
+      <div class="section-header">
+        <div class="section-number">11</div>
+        <div class="section-title">יצירת קשר</div>
+      </div>
+      <div class="section-body">
+        <p>לכל שאלה, פנייה או בקשה הנוגעת לתקנון זה ולמדיניות הפרטיות, לרבות בקשות הנוגעות לנתונים אישיים, ניתן לפנות אלינו:</p>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="label">דוא"ל</div>
+            <div class="value">support@tofes-mekovan.co.il</div>
+          </div>
+          <div class="contact-item">
+            <div class="label">וואטסאפ</div>
+            <div class="value">052-5518255</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <strong>טופס מקוון TM</strong> | א.ר.י.א.ל טי.אם יעוץ ופתרונות ניהול בע"מ ח.פ. 516865573<br>
+  <span style="margin-top:6px;display:block;">עמוד זה עודכן בפברואר 2026 לעמידה בדרישות Google Play Console</span>
+</footer>
+
+</body>
+</html>
